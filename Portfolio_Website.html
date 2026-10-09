@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio website of Ankita Kumari, a BCA student interested in AI, ML, and cybersecurity.">
+  <title>Ankita Kumari | Portfolio</title>
+
+  <style>
+    /* ---------- Basic page styles ---------- */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2937;
+      background-color: #f8fafc;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      margin-bottom: 12px;
+      color: #1e293b;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      margin: 0 auto 38px;
+      color: #64748b;
+      text-align: center;
+    }
+
+    /* ---------- Navigation ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+    }
+
+    nav {
+      min-height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: #5b42d6;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 16px;
+      font-size: 0.78rem;
+      font-weight: bold;
+    }
+
+    .nav-links a {
+      color: #475569;
+    }
+
+    .nav-links a:hover {
+      color: #5b42d6;
+    }
+
+    /* ---------- Home section ---------- */
+    .hero {
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #eef2ff, #ecfeff);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 95px 0;
+    }
+
+    .small-heading {
+      margin-bottom: 10px;
+      color: #5b42d6;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      margin: 0 0 15px;
+      color: #1e293b;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.1;
+    }
+
+    .hero-role {
+      margin-bottom: 18px;
+      color: #0f766e;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .hero-text {
+      max-width: 600px;
+      color: #475569;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      padding: 12px 18px;
+      border: 2px solid #5b42d6;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .primary-button {
+      color: #ffffff;
+      background-color: #5b42d6;
+    }
+
+    .primary-button:hover {
+      background-color: #432cae;
+      transform: translateY(-2px);
+    }
+
+    .secondary-button {
+      color: #5b42d6;
+      background-color: #ffffff;
+    }
+
+    .secondary-button:hover {
+      background-color: #ede9fe;
+      transform: translateY(-2px);
+    }
+
+    /* ---------- Cards and grids ---------- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid #dbe3ef;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      border-color: #a89af7;
+      transform: translateY(-5px);
+      box-shadow: 0 9px 20px rgba(15, 23, 42, 0.1);
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+      color: #475569;
+    }
+
+    .about-content p {
+      margin-bottom: 18px;
+    }
+
+    .highlight-list,
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .highlight-list span,
+    .tech-list span {
+      padding: 6px 10px;
+      border-radius: 20px;
+      color: #4338ca;
+      background-color: #ede9fe;
+      font-size: 0.78rem;
+      font-weight: bold;
+    }
+
+    /* ---------- Education timeline ---------- */
+    .education {
+      background-color: #f1f5f9;
+    }
+
+    .timeline {
+      max-width: 850px;
+      margin: auto;
+      border-left: 3px solid #5b42d6;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-left: 25px;
+      margin-bottom: 24px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: -34px;
+      width: 15px;
+      height: 15px;
+      border: 3px solid #5b42d6;
+      border-radius: 50%;
+      background-color: #ffffff;
+    }
+
+    .timeline-year {
+      color: #5b42d6;
+      font-size: 0.82rem;
+      font-weight: bold;
+    }
+
+    .timeline-item h3 {
+      margin: 6px 0;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: #64748b;
+    }
+
+    .cgpa-list {
+      margin-top: 12px;
+      color: #334155;
+      font-size: 0.85rem;
+    }
+
+    /* ---------- Internship ---------- */
+    .internship-box {
+      padding: 35px;
+      border-radius: 12px;
+      color: #ffffff;
+      background: linear-gradient(135deg, #1e293b, #334155);
+    }
+
+    .internship-box h2,
+    .internship-box h3 {
+      color: #ffffff;
+    }
+
+    .internship-box p {
+      color: #dbeafe;
+    }
+
+    .internship-box .tech-list span {
+      color: #cffafe;
+      background-color: rgba(8, 145, 178, 0.35);
+    }
+
+    /* ---------- Projects ---------- */
+    .projects {
+      background-color: #f8fafc;
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      color: #312e81;
+    }
+
+    .project-card p {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin: 20px 14px 0 0;
+      color: #5b42d6;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- Certifications and resume ---------- */
+    .certification-card h3 {
+      margin: 0 0 8px;
+      color: #0f766e;
+      font-size: 1rem;
+    }
+
+    .certification-card p {
+      margin: 0;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+
+    .resume-box {
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      background: linear-gradient(135deg, #ede9fe, #cffafe);
+    }
+
+    .resume-box p {
+      max-width: 600px;
+      margin: 0 auto 15px;
+      color: #475569;
+    }
+
+    /* ---------- Contact ---------- */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 25px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item {
+      padding: 16px;
+      border-left: 4px solid #5b42d6;
+      border-radius: 5px;
+      background-color: #f1f5f9;
+    }
+
+    .contact-item small {
+      display: block;
+      color: #64748b;
+      font-weight: bold;
+    }
+
+    .contact-item strong {
+      overflow-wrap: anywhere;
+      color: #334155;
+      font-size: 0.86rem;
+    }
+
+    .contact-item a:hover {
+      color: #5b42d6;
+    }
+
+    form {
+      padding: 24px;
+      border-radius: 10px;
+      background-color: #f1f5f9;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 15px;
+      color: #334155;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin-top: 5px;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      color: #1e293b;
+      background-color: #ffffff;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid #a89af7;
+      border-color: #5b42d6;
+    }
+
+    .message {
+      min-height: 20px;
+      margin: 10px 0 0;
+      color: #047857;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    /* ---------- Professional links and footer ---------- */
+    .link-card {
+      display: block;
+    }
+
+    .link-card h3 {
+      margin-top: 0;
+      color: #5b42d6;
+    }
+
+    .link-card p {
+      margin-bottom: 0;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+
+    footer {
+      padding: 25px 0;
+      color: #dbeafe;
+      text-align: center;
+      background-color: #1e293b;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    /* ---------- Mobile styles ---------- */
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 10px;
+        font-size: 0.7rem;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 700px) {
+      .section {
+        padding: 55px 0;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 8px;
+        font-size: 0.65rem;
+      }
+
+      .nav-links a {
+        padding: 4px 0;
+        border-bottom: 0;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        padding: 55px 0;
+      }
+
+      .heading {
+        text-align: center;
+      }
+
+      .heading > p {
+        margin-top: 12px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">Ankita.</a>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+        <a href="#links">Links</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home section -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div>
+          <p class="small-heading">BCA STUDENT · RANCHI, INDIA</p>
+          <h1>Hi, I'm Ankita Kumari</h1>
+          <p class="hero-role">BCA Student | AI/ML &amp; Cybersecurity Enthusiast</p>
+          <p class="hero-text">I am learning how to create useful software, explore Artificial Intelligence and Machine Learning, and understand cybersecurity through practical projects.</p>
+          <a class="button primary-button" href="#projects">View My Projects</a>
+          <a class="button secondary-button" href="'/Users/anjalikumari/Downloads/Resume (1).pdf'" download>Download Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <p>I am a BCA student interested in Artificial Intelligence, Machine Learning, Cybersecurity and software development. I enjoy learning programming, computer networks, operating systems, databases, cloud computing and machine learning by building practical projects.</p>
+          <p>My goal is to become an AI/ML and Cybersecurity Engineer and work in a reputed MNC.</p>
+          <div class="highlight-list">
+            <span>Artificial Intelligence</span><span>Machine Learning</span><span>Cybersecurity</span><span>Software Engineering</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education section -->
+    <section class="education section" id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <p class="section-intro">My academic journey and semester performance.</p>
+        <div class="timeline">
+          <article class="timeline-item">
+            <p class="timeline-year">2024–2027</p>
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <p>Jharkhand Rai University, Ranchi</p>
+            <p class="cgpa-list">Semester SGPAs: Semester 1 — 9.10 | Semester 2 — 9.22 | Semester 3 — 8.47 | Semester 4 — 9.04</p>
+          </article>
+          <article class="timeline-item">
+            <p class="timeline-year">Class 12</p>
+            <h3>CBSE, Arts Stream</h3>
+            <p>Percentage: 89%</p>
+          </article>
+          <article class="timeline-item">
+            <p class="timeline-year">Class 10</p>
+            <h3>CBSE, English Medium</h3>
+            <p>Percentage: 87%</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills section -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-intro">Technologies and computer science topics I am learning and using.</p>
+        <div class="card-grid">
+          <article class="card"><h3>Programming</h3><div class="tech-list"><span>Python</span><span>C++</span><span>C</span></div></article>
+          <article class="card"><h3>AI / ML</h3><div class="tech-list"><span>Machine Learning</span><span>NumPy</span><span>Scikit-learn</span><span>AI Agents</span></div></article>
+          <article class="card"><h3>Cybersecurity</h3><div class="tech-list"><span>Network Security</span><span>Traffic Analysis</span><span>Linux / Kali Linux</span></div></article>
+          <article class="card"><h3>Computer Science</h3><div class="tech-list"><span>DSA</span><span>Operating Systems</span><span>Computer Networks</span><span>DBMS</span></div></article>
+          <article class="card"><h3>Web Development</h3><div class="tech-list"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>SQL</span></div></article>
+          <article class="card"><h3>Tools</h3><div class="tech-list"><span>Git</span><span>GitHub</span><span>VS Code</span><span>Cloud Computing</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Internship section -->
+    <section class="internship section" id="internship">
+      <div class="container internship-box">
+        <p class="small-heading">INTERNSHIP · 1.5 MONTHS</p>
+        <h2>Cybersecurity Internship</h2>
+        <h3>Jharkhand Government Tool Room, Ranchi</h3>
+        <p>During this internship, I worked with cybersecurity fundamentals, computer networks, operating systems, network traffic analysis, Python, C++, and data structures.</p>
+        <div class="tech-list"><span>Python</span><span>Cybersecurity</span><span>Networks</span><span>C++ &amp; DSA</span><span>Operating Systems</span></div>
+      </div>
+    </section>
+
+    <!-- Projects section -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-intro">Practical projects that combine my interest in software, AI/ML and cybersecurity.</p>
+        <div class="card-grid">
+          <article class="card project-card">
+            <h3>Network Intrusion Detection System</h3>
+            <p>A machine-learning based cybersecurity project that analyzes network traffic and detects possible DDoS attacks and port scanning.</p>
+            <div class="tech-list"><span>Python</span><span>Scikit-learn</span><span>Random Forest</span><span>Scapy</span><span>Flask</span><span>SQLite</span></div>
+            <a class="project-link" href="https://github.com/Ankitame1" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="project-link" href="#contact">View Project ↗</a>
+          </article>
+          <article class="card project-card">
+            <h3>AI Agent</h3>
+            <p>A Python-based AI agent that can use tools for calculations, time, weather and memory.</p>
+            <div class="tech-list"><span>Python</span><span>LLM API</span><span>APIs</span></div>
+            <a class="project-link" href="https://github.com/Ankitame1" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="project-link" href="#contact">View Project ↗</a>
+          </article>
+          <article class="card project-card">
+            <h3>Iris Flower Classification</h3>
+            <p>A machine learning project using a Decision Tree to classify different Iris flower species.</p>
+            <div class="tech-list"><span>Python</span><span>NumPy</span><span>Scikit-learn</span></div>
+            <a class="project-link" href="https://github.com/Ankitame1" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="project-link" href="#contact">View Project ↗</a>
+          </article>
+          <article class="card project-card">
+            <h3>Responsive Personal Portfolio</h3>
+            <p>A beginner-friendly responsive portfolio website with navigation, projects, education and contact sections.</p>
+            <div class="tech-list"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <a class="project-link" href="https://github.com/Ankitame1" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="project-link" href="#home">View Project ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications section -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-intro">Courses and programs that support my learning journey.</p>
+        <div class="card-grid">
+          <article class="card certification-card"><h3>Introduction to Prompt Engineering with GitHub Copilot</h3><p>Certification / learning program</p></article>
+          <article class="card certification-card"><h3>Google HTML Program</h3><p>Certification / learning program</p></article>
+          <article class="card certification-card"><h3>Google Cloud Computing Foundations</h3><p>Certification / learning program</p></article>
+          <article class="card certification-card"><h3>Google Cloud Compute Skill Badge</h3><p>Certification / learning program</p></article>
+          </div>
+      </div>
+    </section>
+
+    <!-- Resume section -->
+    <section class="section" id="resume">
+      <div class="container resume-box">
+        <h2>My Resume</h2>
+        <p>Download my resume to learn more about my education, technical skills, projects and career interests.</p>
+        <a class="button primary-button" href="'/Users/anjalikumari/Downloads/Resume (1).pdf'" download>Download Resume</a>
+      </div>
+    </section>
+
+    <!-- Contact section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-intro">Use the placeholders below for now, then update them with your own details.</p>
+        <div class="contact-layout">
+          <div class="contact-details">
+            <div class="contact-item"><small>EMAIL</small><strong><a href="mailto:ankitakumari8069@gmail.com ">ankitakumari8069@gmail.com</a></strong></div>
+            <div class="contact-item"><small>LINKEDIN</small><strong><a href="https://www.linkedin.com/in/ankitakri/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/ankitakri/</a></strong></div>
+            <div class="contact-item"><small>GITHUB</small><strong><a href="https://github.com/Ankitame1" target="_blank" rel="noopener noreferrer">https://github.com/Ankitame1</a></strong></div>
+            <div class="contact-item"><small>LOCATION</small><strong>Ranchi, Jharkhand, India</strong></div>
+          </div>
+          <form action="#contact">
+            <div class="form-row">
+              <label>Name<input type="text" id="name" placeholder="Your name"></label>
+              <label>Email<input type="email" id="email" placeholder="ankitakumari8069@gmail.com "></label>
+            </div>
+            <label>Subject<input type="text" id="subject" placeholder="What would you like to discuss?"></label>
+            <label>Message<textarea id="message" rows="5" placeholder="Write your message here..."></textarea></label>
+            <button class="button primary-button" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional links section -->
+    <section class="section" id="links">
+      <div class="container">
+        <h2 class="section-title">Professional Links</h2>
+        <div class="card-grid">
+          <a class="card link-card" href="https://github.com/Ankitame1" target="_blank" rel="noopener noreferrer"><h3>GitHub</h3></a>
+          <a class="card link-card" href="https://www.linkedin.com/in/ankitakri/" target="_blank" rel="noopener noreferrer"><h3>LinkedIn</h3></a>
+          <a class="card link-card" href="https://www.credly.com/users/ankita-kumari.84b01745/edit/badges/credly"><h3>Google Certifications</h3><p>See the certifications section above.</p></a>
+          <a class="card link-card" href="mailto:ankitakumari8069@gmail.com "><h3>Email</h3></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Ankita Kumari | BCA Student | AI/ML &amp; Cybersecurity Enthusiast</p>
+  </footer>
+
+</body>
+</html>
